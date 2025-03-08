@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Form</title>
+
+    <script>
+        function addNewItemForm() {
+            const container = document.getElementById("item-form-container");
+            const newItemForm = document.createElement("div");
+            newItemForm.classList.add("form-row");
+            newItemForm.innerHTML = `
+                <label for="item_number">Item Number:</label>
+                <input type="text" name="item_number[]" required>
+
+                <label for="item_description">Item Description:</label>
+                <input type="text" name="item_description[]" required>
+
+                <label for="quantity">Quantity:</label>
+                <input type="number" name="quantity[]" required>
+
+                <button type="button" class="remove-btn" onclick="removeItemForm(this)">Remove this Item</button>
+            `;
+            container.appendChild(newItemForm);
+        }
+
+        function removeItemForm(button) {
+            button.parentElement.remove();
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Enter Item Details</h2>
+
+    <div class="form-container">
+        <form action="add.php" method="POST">
+            <div id="item-form-container">
+                <div class="form-row">
+                    <label for="item_number">Item Number:</label>
+                    <input type="text" name="item_number[]" required>
+
+                    <label for="item_description">Item Description:</label>
+                    <input type="text" name="item_description[]" required>
+
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" name="quantity[]" required>
+                </div>
+            </div>
+
+            <button type="button" onclick="addNewItemForm()">Add Another Item</button><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+</body>
+</html>
