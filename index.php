@@ -9,11 +9,10 @@
 <body>
     <header>
         <h2>Kemmsies Inventory Management System</h2>
-    </header>
-
     <a href="inventory.php"><button>Total Inventory</button></a>
     <a href="add.php"><button>Add Inventory</button></a>
     <a href="scan.php"><button>Scan/Remove</button></a>
     <a href="print.php"><button>Print Inventory</button></a>
+    </header>
 </body>
 </html>

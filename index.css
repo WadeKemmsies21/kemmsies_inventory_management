@@ -1,0 +1,22 @@
+header {
+    background-color: #5d7a91;
+    color: white;
+    text-align: center;  /* Centers text and inline elements like buttons */
+    justify-content: center;  /* Vertically center content within the header */
+    align-items: center;
+}
+
+header h2 {
+    padding-top: 10%;
+}
+
+header a {
+    margin: 10px;  /* Adds spacing between the buttons */
+}
+
+header button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: black;
+    margin-bottom: 10%;
+}

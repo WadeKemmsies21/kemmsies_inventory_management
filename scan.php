@@ -49,63 +49,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->close();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remove Inventory Items</title>
+<?php include('index.php'); ?> <!-- Include the header -->
 
-    <script>
-        function addRemoveItemForm() {
-            const container = document.getElementById("remove-item-form-container");
-            const newItemForm = document.createElement("div");
-            newItemForm.classList.add("form-row");
-            newItemForm.innerHTML = `
+<h2>Remove Item Details</h2>
+
+<div class="form-container">
+    <form action="" method="POST">
+        <div id="remove-item-form-container">
+            <div class="form-row">
                 <label for="item_number">Item Number:</label>
-                <input type="text" name="item_number[]" required>
+                <input type="text" name="item_number[]" required autofocus>
 
                 <label for="quantity">Quantity to Remove:</label>
                 <input type="number" name="quantity[]" required>
-
-                <button type="button" class="remove-btn" onclick="removeItemForm(this)">Remove this Item</button>
-            `;
-            container.appendChild(newItemForm);
-        }
-
-        function removeItemForm(button) {
-            button.parentElement.remove();
-        }
-    </script>
-</head>
-<body>
-    <header>
-        <h2>Kemmsies Inventory Management System</h2>
-    </header>
-
-    <a href="inventory.php"><button>Total Inventory</button></a>
-    <a href="add.php"><button>Add Inventory</button></a>
-    <a href="scan.php"><button>Scan/Remove</button></a>
-    <a href="print.php"><button>Print Inventory</button></a>
-
-    <h2>Remove Item Details</h2>
-
-    <div class="form-container">
-        <form action="" method="POST">
-            <div id="remove-item-form-container">
-                <div class="form-row">
-                    <label for="item_number">Item Number:</label>
-                    <input type="text" name="item_number[]" required>
-
-                    <label for="quantity">Quantity to Remove:</label>
-                    <input type="number" name="quantity[]" required>
-                </div>
             </div>
+        </div>
 
-            <button type="button" onclick="addRemoveItemForm()">Add Another Item</button><br><br>
-            <input type="submit" value="Remove Items">
-        </form>
-    </div>
+        <button type="button" onclick="addRemoveItemForm()">Add Another Item</button><br><br>
+        <input type="submit" value="Remove Items">
+    </form>
+</div>
+
+<script>
+    function addRemoveItemForm() {
+        const container = document.getElementById("remove-item-form-container");
+        const newItemForm = document.createElement("div");
+        newItemForm.classList.add("form-row");
+        newItemForm.innerHTML = `
+            <label for="item_number">Item Number:</label>
+            <input type="text" name="item_number[]" required>
+
+            <label for="quantity">Quantity to Remove:</label>
+            <input type="number" name="quantity[]" required>
+
+            <button type="button" class="remove-btn" onclick="removeItemForm(this)">Remove this Item</button>
+        `;
+        container.appendChild(newItemForm);
+    }
+
+    function removeItemForm(button) {
+        button.parentElement.remove();
+    }
+</script>
 
 </body>
 </html>
